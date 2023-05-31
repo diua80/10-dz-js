@@ -17,7 +17,7 @@ function fetchBreeds() {
           name: breed.name,
         };
       });
-    });
+    }).catch(err=>console.log(err.message));
 }
 
 function fetchCatByBreed(breedId) {
@@ -36,7 +36,7 @@ function fetchCatByBreed(breedId) {
         description: catData.breeds[0].description,
         temperament: catData.breeds[0].temperament,
       };
-    });
+    }).catch(err=>console.log(err.message));
 }
 
 export { fetchBreeds, fetchCatByBreed };

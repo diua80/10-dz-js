@@ -41,11 +41,11 @@ function showLoader() {
     console.log("remove");
 }
 
-function showError() {
+function hideError() {
   refs.error.classList.add("visible");
 }
 
-function hideError() {
+function showError() {
   refs.error.classList.remove("visible");
 }
 
@@ -61,7 +61,7 @@ function showCatInfo(catData) {
     </div>
   `;
     catInfo.classList.remove("visible");
-    showError();
+    // showError();
 }
 
 // function clearInterface() {
@@ -81,7 +81,7 @@ function loadBreeds() {
     showLoader();
     hideCatInfo();
     // hideError();
-    showError();
+    // showError();
     
 
   fetchBreeds()
@@ -107,6 +107,7 @@ function handleSelectChange(event) {
 
   fetchCatByBreed(selectedBreedId)
     .then((catData) => {
+      refs.catInfo.innerHTML = "";
       showCatInfo(catData);
       hideLoader();
     })
